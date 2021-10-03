@@ -1,0 +1,148 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}"/>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+
+</head>
+    
+    
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="search__container">
+                    <p class="search__title">
+                        Go ahead, hover over search
+                    </p>
+                    <input class="search__input" type="text" placeholder="Search">
+                </div>
+            </div>
+           
+        </div>
+        <!-- criar placeholder para as categorias -->
+        <div class="row">
+            <div class="col-2">
+                <div class="select" tabindex="1">
+                    <input class="selectopt" name="categorias" type="radio" id=holder_categoria checked/>
+                    <label for="holder_categoria" class="option">Categories</label>
+                    {% for categoria in categorias %}
+                        <input class="selectopt" name="categorias" type="radio" id={{categoria}} />
+                        <label for={{categoria}} class="option">{{categoria}}</label>
+                    {% endfor %}
+                  </div>
+            </div>
+            <div class="col-2">
+                <div class="select" tabindex="2">
+                    {% for clima in climas %}
+                        <input class="selectopt" name="climas" type="radio" id={{clima}} />
+                        <label for={{clima}} class="option">{{clima}}</label>
+                    {% endfor %}
+                  </div>
+            </div>
+            <div class="col-2">
+                <div class="select" tabindex="3">
+                    {% for movimento in movimentos %}
+                        <input class="selectopt" name="movimentos" type="radio" id={{movimento}} />
+                        <label for={{movimento}} class="option">{{movimento}}</label>
+                    {% endfor %}
+                  </div>
+            </div>
+            <div class="col-2">
+                <div class="select" tabindex="2">
+                    <input class="selectopt" name="test3" type="radio" id="opt4" checked>
+                    <label for="opt3" class="option">Oranges</label> 
+                  </div>
+            </div>
+            <div class="col-2">
+                <div class="select" tabindex="2">
+                    <input class="selectopt" name="test4" type="radio" id="opt5" checked>
+                    <label for="opt3" class="option">Oranges</label> 
+                  </div>
+            </div>
+            <div class="col-2">
+                <div class="select" tabindex="2">
+                    <input class="selectopt" name="test5" type="radio" id="opt6" checked>
+                    <label for="opt3" class="option">Oranges</label> 
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="box-sizing: border-box;" class="col">
+                <ul class="cards">
+                    <!-- card base -->
+                    <li>
+                      <a href="" class="card">
+                        <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+                        <div class="card__overlay">
+                          <div class="card__header">                  
+                            <div class="card__header-text">
+                              <h3 class="card__title">Jessica Parker</h3>            
+                              <span class="card__status">1 hour ago</span>
+                            </div>
+                          </div>
+                          
+                        </div>
+                      </a>      
+                    </li>
+                    <li>
+                      <a href="" class="card">
+                        <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
+                        <div class="card__overlay">        
+                          <div class="card__header">
+                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+                            <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
+                            <div class="card__header-text">
+                              <h3 class="card__title">kim Cattrall</h3>
+                              <span class="card__status">3 hours ago</span>
+                            </div>
+                          </div>
+                          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="" class="card">
+                        <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+                        <div class="card__overlay">
+                          <div class="card__header">
+                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+                            <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+                            <div class="card__header-text">
+                              <h3 class="card__title">Jessica Parker</h3>
+                              <span class="card__tagline">Lorem ipsum dolor sit amet consectetur</span>            
+                              <span class="card__status">1 hour ago</span>
+                            </div>
+                          </div>
+                          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="" class="card">
+                        <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
+                        <div class="card__overlay">
+                          <div class="card__header">
+                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+                            <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
+                            <div class="card__header-text">
+                              <h3 class="card__title">kim Cattrall</h3>
+                              <span class="card__status">3 hours ago</span>
+                            </div>          
+                          </div>
+                          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                        </div>
+                      </a>
+                    </li>    
+                  </ul>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
