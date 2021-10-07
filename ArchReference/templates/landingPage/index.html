@@ -3,7 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}"/>
+    <script src="{% static 'script.js'%}"></script>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
@@ -17,9 +22,9 @@
             <div class="col-12">
                 <div class="search__container">
                     <p class="search__title">
-                        Go ahead, hover over search
+                        Search for architecture projects easily
                     </p>
-                    <input class="search__input" type="text" placeholder="Search">
+                    <input class="search__input" type="text" id="search" placeholder="Search">
                 </div>
             </div>
            
@@ -28,54 +33,70 @@
         <div class="row">
             <div class="col-2">
                 <div class="select" tabindex="1">
-                    <input class="selectopt" name="categorias" type="radio" id=holder_categoria checked/>
+                    <input class="selectopt" value="" name="categorias" type="radio" id=holder_categoria checked/>
                     <label for="holder_categoria" class="option">Categories</label>
                     {% for categoria in categorias %}
-                        <input class="selectopt" name="categorias" type="radio" id={{categoria}} />
+                        <input class="selectopt" value="{{categoria}}" name="categorias" type="radio" id={{categoria}} />
                         <label for={{categoria}} class="option">{{categoria}}</label>
                     {% endfor %}
                   </div>
             </div>
             <div class="col-2">
                 <div class="select" tabindex="2">
+                  <input class="selectopt" value="" name="climas" type="radio" id=holder_clima checked/>
+                  <label for="holder_clima" class="option">Climates</label>
                     {% for clima in climas %}
-                        <input class="selectopt" name="climas" type="radio" id={{clima}} />
+                        <input class="selectopt" value="{{clima}}" name="climas" type="radio" id={{clima}} />
                         <label for={{clima}} class="option">{{clima}}</label>
                     {% endfor %}
                   </div>
             </div>
             <div class="col-2">
                 <div class="select" tabindex="3">
+                  <input class="selectopt" value= "" name="movimentos" type="radio" id=holder_movimento checked/>
+                  <label for="holder_movimento" class="option">Movements</label>
                     {% for movimento in movimentos %}
-                        <input class="selectopt" name="movimentos" type="radio" id={{movimento}} />
+                        <input class="selectopt" value="{{movimento}}" name="movimentos" type="radio" id={{movimento}} />
                         <label for={{movimento}} class="option">{{movimento}}</label>
                     {% endfor %}
                   </div>
             </div>
             <div class="col-2">
-                <div class="select" tabindex="2">
-                    <input class="selectopt" name="test3" type="radio" id="opt4" checked>
-                    <label for="opt3" class="option">Oranges</label> 
+                <div class="select" tabindex="4">
+                  <input class="selectopt" value="" name="materiais" type="radio" id=holder_material checked/>
+                  <label for="holder_material" class="option">Materials</label>
+                  {% for material in materiais %}
+                  <input class="selectopt" value="{{material}}" name="materiais" type="radio" id={{material}} />
+                  <label for={{material}} class="option">{{material}}</label>
+              {% endfor %}
                   </div>
             </div>
             <div class="col-2">
-                <div class="select" tabindex="2">
-                    <input class="selectopt" name="test4" type="radio" id="opt5" checked>
-                    <label for="opt3" class="option">Oranges</label> 
+                <div class="select" tabindex="5">
+                  <input class="selectopt" value="" name="cores" type="radio" id=holder_cor checked/>
+                  <label for="holder_cor" class="option">Color</label>
+                  {% for cor in cores %}
+                  <input class="selectopt" value="{{cor}}" name="cores" type="radio" id={{cor}} />
+                  <label for={{cor}} class="option">{{cor}}</label>
+              {% endfor %}
                   </div>
             </div>
             <div class="col-2">
-                <div class="select" tabindex="2">
-                    <input class="selectopt" name="test5" type="radio" id="opt6" checked>
-                    <label for="opt3" class="option">Oranges</label> 
+                <div class="select" tabindex="6">
+                  <input class="selectopt" value="" name="areas" type="radio" id=holder_area checked/>
+                  <label for="holder_area" class="option">Area</label>
+                  {% for area in areas %}
+                  <input class="selectopt"value="{{area}}" name="areas" type="radio" id={{area}} />
+                  <label for={{area}} class="option">{{area}}</label>
+              {% endfor %}
                   </div>
             </div>
         </div>
         <div class="row">
             <div style="box-sizing: border-box;" class="col">
-                <ul class="cards">
+                <ul id="cards" class="cards">
                     <!-- card base -->
-                    <li>
+                    <!-- <li>
                       <a href="" class="card">
                         <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
                         <div class="card__overlay">
@@ -88,56 +109,8 @@
                           
                         </div>
                       </a>      
-                    </li>
-                    <li>
-                      <a href="" class="card">
-                        <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
-                        <div class="card__overlay">        
-                          <div class="card__header">
-                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                            <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
-                            <div class="card__header-text">
-                              <h3 class="card__title">kim Cattrall</h3>
-                              <span class="card__status">3 hours ago</span>
-                            </div>
-                          </div>
-                          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="" class="card">
-                        <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
-                        <div class="card__overlay">
-                          <div class="card__header">
-                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-                            <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
-                            <div class="card__header-text">
-                              <h3 class="card__title">Jessica Parker</h3>
-                              <span class="card__tagline">Lorem ipsum dolor sit amet consectetur</span>            
-                              <span class="card__status">1 hour ago</span>
-                            </div>
-                          </div>
-                          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                        </div>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="" class="card">
-                        <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
-                        <div class="card__overlay">
-                          <div class="card__header">
-                            <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
-                            <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
-                            <div class="card__header-text">
-                              <h3 class="card__title">kim Cattrall</h3>
-                              <span class="card__status">3 hours ago</span>
-                            </div>          
-                          </div>
-                          <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                        </div>
-                      </a>
-                    </li>    
+                    </li>  -->
+                 
                   </ul>
             </div>
         </div>

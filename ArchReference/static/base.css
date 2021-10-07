@@ -49,6 +49,7 @@
 
 
 .select {
+    z-index: 99;
     margin-top: 10px;
     display:flex;
     flex-direction: column;
@@ -173,6 +174,7 @@
   .card__header {
     position: relative;
     display: flex;
+    opacity: 0.9;
     align-items: center;
     gap: 2em;
     padding: 2em;
@@ -198,6 +200,7 @@
   }       
   
   .card:hover .card__header {
+    
     transform: translateY(0);
   }
   
